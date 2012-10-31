@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<overlay id="rpnetdownloadOverlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+
+	<script type="application/x-javascript" src="chrome://rpnetdownload/content/rpnetdownloadOverlay.js"></script>
+
+	<keyset>
+	  <key id="rpnet-selection" modifiers="accel shift" keycode="VK_F2" oncommand="rpnet.doDownload();"/>
+	</keyset>
+
+	<popup id="contentAreaContextMenu">
+		<menuitem id="rpnetdownload" label="Download with RPNET" image = "chrome://rpnetdownload/skin/rpnetdownload.png" class="menuitem-iconic" insertafter="context-selectall" key="rpnet-selection" oncommand="rpnet.doDownload();" />
+	</popup>
+
+</overlay>
