@@ -206,10 +206,14 @@ rpnet.doDownload = function ()
 		var matches = [];
 		
 		for (var i = 0; i < arr.length; i++) {
+			if (arr[0].toLowerCase().indexOf('netload.in') !== -1) {
+				arr[i] += '.htm';
+			}
 			if (matches.indexOf(arr[i]) === -1) {
 				matches.push(arr[i]);
 			}
 		}
+	
 		/*if(arr[0].toLowerCase().indexOf("netload.in") !== -1)
 		{
 			matches.push(arr[0]+".htm");
