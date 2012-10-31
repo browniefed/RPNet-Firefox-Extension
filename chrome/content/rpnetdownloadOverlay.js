@@ -174,7 +174,7 @@ rpnet.doDownload = function ()
 	url = window.top.getBrowser().selectedBrowser.contentWindow.location.href;
 	urlMatch = url.match(rpnet.regex);
 	var html = "";
-	if (urlMatch.length > 0) {
+	if (urlMatch !== null) {
 		html = url;
 	} else if (selectedLink !== null) {
 		if (selectedLink.tagName == 'A') {
@@ -205,7 +205,12 @@ rpnet.doDownload = function ()
 		
 		var matches = [];
 		
-		if(arr[0].toLowerCase().indexOf("netload.in") !== -1)
+		for (var i = 0; i < arr.length; i++) {
+			if (matches.indexOf(arr[i]) === -1) {
+				matches.push(arr[i]);
+			}
+		}
+		/*if(arr[0].toLowerCase().indexOf("netload.in") !== -1)
 		{
 			matches.push(arr[0]+".htm");
 		}
@@ -237,7 +242,7 @@ rpnet.doDownload = function ()
 					matches.push(arr[i+1]);
 				}
 			}
-		}
+		}*/
 		
 		rpnet.convertAndSend(matches.join("\n"));
 	}
